@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170628141103) do
   create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "restaurant_id"
     t.integer "dish_id"
-    t.decimal "avg_rating", precision: 10
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,9 +28,6 @@ ActiveRecord::Schema.define(version: 20170628141103) do
   create_table "restaurants", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "address"
     t.string "rest_name"
-    t.string "phone_number"
-    t.string "timings"
-    t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,8 +35,6 @@ ActiveRecord::Schema.define(version: 20170628141103) do
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "rating_id"
     t.integer "user_id"
-    t.decimal "user_rating", precision: 10
-    t.text "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,7 +42,6 @@ ActiveRecord::Schema.define(version: 20170628141103) do
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "pwd"
     t.string "user_name"
-    t.string "email_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
