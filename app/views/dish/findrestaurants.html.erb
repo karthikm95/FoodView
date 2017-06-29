@@ -1,14 +1,24 @@
 <h1> Listing Restaurants </h1>
 <table>
   <tr>
-    <th>Name/th>
-    <th>Address</th>
+    <th>Name</th>
+    <th> Address  </th>
+    <th> Phone Numbers </th>
+    <th>Timings</th>
+    <th>Ratings</th>
   </tr>
-<%= @result.each do |res| %>
+<% index = 0 %>
+<% @result.each do |res| %>
 	<tr>
-		<td> <%= res.name %> </td>
+		<td> <%= res.rest_name %> </td>		
 		<td> <%= res.address %> </td>
-		<td> <%= link_to 'Comments',controller: 'rating',action: '',method: :post %> </td>
+		<td> <%= res.phone_number %> </td>
+		<td> <%= res.timings %> </td>
+		<td> <%= @rating_result[index] %> </td> 
+		<% index = index+1 %>
 	</tr>
-	<%end%>
+	
+<% end %>
+<%# link_to 'Search',action:'dish/find',method: :get %> 
 </table>
+<%= link_to "Search" , action:'find',method: :get %> 
