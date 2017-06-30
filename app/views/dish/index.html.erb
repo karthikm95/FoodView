@@ -1,9 +1,14 @@
-<h1>Welcome to Dish-o-licious!</h1>
-<h2>Please click the link below to start discovering</h2>
+<div class="background_image">
+
+<font color = #2E8B57>
+
+
+
+<center><h1>Welcome to Dish-o-licious!</h1><center><h2>Please click the link below to start discovering</h2>
 <%= link_to "Search" , action:'find',method: :get %> 
 <hr/>
 <h2> You're at the right place if the foods below are your favorite: </h2>
-	<ol>
+	<ol class="center">
 
 		<li>Pizza</li>
 		<li>Biryani</li>
@@ -14,4 +19,17 @@
 
 	</ol>
 
+
+
 <hr/>
+</center>
+<style type="text/css">
+ .center { text-align: center; list-style-position:inside;}
+
+
+.background_image {
+    background: url(/assets/food.jpg);
+}
+</style>
+</font>
+</div>
