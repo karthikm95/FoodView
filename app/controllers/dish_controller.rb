@@ -1,25 +1,13 @@
 class DishController < ApplicationController
+
 	def findrestaurants
-		print params
-		@result = []
-		@rating_result = []
-		dishName = params[:dish][:item]
-		dishName = dishName.downcase
-		
+		dish_name = params[:dish][:item].downcase		
+		dish_id = Dish.select(:id).where(dish_name: dish_name)
 
-		if Dish.find_by_dish_name(dishName)
-			dishId = Dish.where(dish_name: dishName)
-			@rating = Rating.where(dish_id: dishId)
-			@rating = @rating.order(avg_rating: :desc)
-			@rating.each do |r|
-				restId = r.restaurant_id
-				@result << Restaurant.find(restId)
-				@rating_result << r.avg_rating
-			end
-
+		if dish_id
+			@dish_restaurant_join = Rating.joins(:restaurant).select("restaurants.*,ratings.*").where(dish_id: dish_id).order(avg_rating: :desc)
 		else
-			print "hi"
-			render plain:'Sorry!The dish could not be found.Please Enter someother dish'
+			render plain:'Sorry!The dish could not be found.Please Search for some other dish'
 		end
 
 	end

@@ -7,15 +7,13 @@
     <th>Timings</th>
     <th>Ratings</th>
   </tr>
-<% index = 0 %>
-<% @result.each do |res| %>
+<% @dish_restaurant_join.each do |res| %>
 	<tr>
 		<td> <%= res.rest_name %> </td>		
 		<td> <%= res.address %> </td>
 		<td> <%= res.phone_number %> </td>
 		<td> <%= res.timings %> </td>
-		<td> <%= @rating_result[index] %> </td> 
-		<% index = index+1 %>
+		<td> <%= res.avg_rating %> </td> 
 	</tr>
 	
 <% end %>
