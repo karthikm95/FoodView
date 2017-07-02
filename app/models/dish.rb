@@ -1,3 +1,3 @@
 class Dish < ApplicationRecord
-	has_many :rating
+	has_many :restaurant_dish
 end
