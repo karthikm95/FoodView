@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20170701172257) do
   end
 
   create_table "restaurant_dishes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "dish_id", unsigned: true
+    t.bigint "restaurant_id", unsigned: true
+    t.float "avg_rating", limit: 24
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
