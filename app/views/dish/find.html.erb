@@ -1,7 +1,7 @@
 <h1> Find Restaurants for an Item </h1>
 <%= form_for :dish, :url => '/dish/findrestaurants/', :method => 'post' do |f| %>
-	
-	Dish Name :    <%= f.text_field 'item' %> 
+
+	Dish Name :    <%= f.text_field :dish_name, data: {autocomplete_source: Dish.order(:dish_name).map(&:dish_name)} %>
 	<br><br>
 	<%= f.submit 'Search' %>
 
